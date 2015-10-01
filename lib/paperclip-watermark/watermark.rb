@@ -54,7 +54,7 @@ module Paperclip
       params += transformation_command
       params << tofile(dst)
       begin
-        success = Paperclip.run(command, params.flatten.compact.collect{|e| "'#{e}'"}.join(" "))
+        success = Paperclip.run(command, params.flatten.compact.join(" "))
       rescue Paperclip::Errors::CommandNotFoundError
         raise Paperclip::Errors::CommandNotFoundError, "There was an error resizing and cropping #{@basename}" if @whiny
       end
